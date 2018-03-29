@@ -33,9 +33,14 @@ class Log
   def avg_load
     @load_times.inject { |sum, n| sum + n } / @load_times.length
   end
+
+  def most_common_db
+    @databases.max_by { |key, value| value }
+  end
 end
 
 test_log = Log.new('2014-09-03.log')
 
 puts test_log.not_founds
 puts test_log.avg_load
+puts test_log.most_common_db
