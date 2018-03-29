@@ -1,4 +1,4 @@
-### Task 2
+# Task 1
 
 [x] List the number of 404 errors including the number of times each URL was
 requested.
@@ -20,10 +20,25 @@ I'm inferring here that each entry starting with heroku/router is the client
 request, which then makes one or more database queries to a seperate server,
 which appears as a separate entry starting with infoapp/web.x. It looks as
 though the service time is the total time it takes for the response to go out,
-including any wait time from the database queries. See log_crawl ln 18 and ln 33
+including any wait time from the database queries. See log_crawl.rb ln 18 and ln 37
 
-[ ] Which database is most frequently loaded?
+[x] Which database is most frequently loaded?
+
+delayed_jobs
+
+See log_crawl.rb ln 22 and ln 41
 
 [ ] Is any URL redirection taking place?
 
+Yes
+
+There are multiple 300 level status codes, mostly originating from the demo
+controller and backend namespaced controllers
+
 [ ] Are there any server errors? Ideas about possible causes?
+
+Yes
+
+There are a handful of entries with 500 level status codes. The only ones with
+particularly helpful error messages are the first, which says the request was
+interrupted, and two others that had missing ERB templates.

@@ -1,5 +1,5 @@
 class Log
-  attr_reader :not_founds, :load_time, :databases, :redirection, :server_error
+  attr_reader :not_founds, :redirection, :server_error
 
   def initialize file
     @log = File.open( file )
@@ -7,7 +7,7 @@ class Log
     @load_times = []
     @databases = Hash.new(0)
     @redirection = false
-    @server_error = {}
+    @server_error = []
 
     @log.each_line do |line|
       if line.match('status=404')
@@ -27,6 +27,10 @@ class Log
       if line.match(/status=30\d/)
         @redirection = true;
       end
+
+      if line.match(/status=50\d/)
+        @server_error << line
+      end
     end
   end
 
@@ -35,7 +39,7 @@ class Log
   end
 
   def most_common_db
-    @databases.max_by { |key, value| value }
+    @databases.max_by { |key, value| value }[0]
   end
 end
 
@@ -44,3 +48,4 @@ test_log = Log.new('2014-09-03.log')
 puts test_log.not_founds
 puts test_log.avg_load
 puts test_log.most_common_db
+puts test_log.redirection
