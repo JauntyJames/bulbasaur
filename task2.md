@@ -2,7 +2,7 @@
 
 - [x] Which customer has made the most rentals at store 2?
 
-Karl Seal
+    Karl Seal
 
     ```
     WITH customers AS (
@@ -46,10 +46,12 @@ but it was sold out. would he be able to rent it from store 2 if he tried?
 
 - [x] How many customers are active at any given month per year? We define active
 as perfoming at least one rental during that month.
-
-    June 2005 => 2311
+    
+    month | customers
+    ------|----------
+    June 2005 | 2311
           
-        ```
+    ```
     WITH month_rental AS (
       SELECT * FROM rental
       WHERE EXTRACT(MONTH FROM rental_date) = 6 AND EXTRACT(YEAR FROM rental_date) = 2005
@@ -88,8 +90,10 @@ as perfoming at least one rental during that month.
     ```
 
 - [x] which film is the most popular in category 'Sports'?
-
-    'Gleaming Jawbreaker' => 29 rentals
+    
+    title | total_rentals
+    ------|--------------
+    'Gleaming Jawbreaker' | 29 rentals
 
     ```
     WITH sports_film AS (
@@ -119,10 +123,12 @@ as perfoming at least one rental during that month.
 - [x] Are there any other insights that you can gather from the data that would be helpful to the owner of the business?
 
     - What are genres are bringing in the most income?
-      Sports    => $4892.19
-      Sci-Fi    => $4336.01
-      Animation => $4245.31
-      Drama     => $4118.46
+      category | total_payments
+      ---------|---------------
+      Sports | $4892.19
+      Sci-Fi | $4336.01
+      Animation | $4245.31
+      Drama | $4118.46
 
     ```
     WITH categorized_film AS (

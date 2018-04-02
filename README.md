@@ -2,14 +2,12 @@
 
 ## Task 1
 
-[ ] List the number of 404 errors including the number of times each URL was
-requested.
+[Task One Answers](https://github.com/JauntyJames/bulbasaur/blob/master/task1.md)
 
-[ ] Average time to load each page
+[Task One Code](https://github.com/JauntyJames/bulbasaur/blob/master/log_crawl.rb)
 
-[ ] Which database is most frequently loaded?
+## Task 2
 
-[ ] Is any URL redirection taking place?
+[Task Two Answers](https://github.com/JauntyJames/bulbasaur/blob/master/task2.md)
 
-[ ] Are there any server errors? Ideas about possible causes?
-
+## Task 3
