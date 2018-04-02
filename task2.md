@@ -19,7 +19,7 @@ GROUP BY
   customers.customer_id,
   customers.first_name,
   customers.last_name
-ORDER BY rentals desc
+ORDER BY rentals DESC
 LIMIT 10;
 ```
 
@@ -66,7 +66,8 @@ ON month_rental.customer_id = customer.customer_id;
 
     ```
     WITH categorized_film AS (
-      SELECT category.name, film.film_id FROM category
+      SELECT category.name, film.film_id 
+      FROM category
       JOIN film_category 
       ON categorized.category_id = film_category.category_id
       JOIN film
@@ -75,19 +76,46 @@ ON month_rental.customer_id = customer.customer_id;
     inventory_rental AS (
       SELECT * FROM rental
       JOIN inventory 
-      ON rental.inventory = inventory.inventory_id
+      ON rental.inventory_id = inventory.inventory_id
     )
     SELECT 
       COUNT(inventory_rental.rental_id) AS rentals,
       categorized_film.name
     FROM inventory_rental
     JOIN categorized_film
-    ON categorized_film.film_id = invenotry_rental.film_id
+    ON categorized_film.film_id = inventory_rental.film_id
     GROUP BY categorized_film.name
-    ORDER BY rentals desc;
+    ORDER BY rentals DESC;
     ```
 
-- [ ] which film is the most popular in category 'Sports'?
+- [x] which film is the most popular in category 'Sports'?
+
+    'Gleaming Jawbreaker' => 29 rentals
+
+    ```
+    WITH sports_film AS (
+      SELECT film.film_id, film.title
+      FROM title
+      JOIN film_category
+      ON film_category.film_id = film.film_id
+      JOIN category
+      ON film_category = category.category_id
+      WHERE category.name = 'Sports'
+    ),
+    inventory_rental AS (
+      SELECT * FROM rental
+      JOIN inventory
+      ON rental.inventory_id = inventory.inventory_id
+    )
+    SELECT 
+      COUNT(inventory_rental.rental_id) AS rentals, 
+      sports_film.title
+    FROM sports_film
+    JOIN inventory_rental
+    ON sports_film.film_id = inventory_rental.film_id
+    GROUP BY sports_film.title
+    ORDER BY rentals DESC;
+    ```
 
 - [ ] Are there any other insights that you can gather from the data that would be
 helpful to the owner of the business?
