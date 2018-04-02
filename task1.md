@@ -3,13 +3,13 @@
 - [x] List the number of 404 errors including the number of times each URL was
 requested.
 
-    ```
-    /api/accounts/3 => 8757
-    /user_password_resets => 1
-    /petitions => 1
-    /backend/subscription/update_billing => 1
-    /uas/request-password-reset?trk=uas-resetpass => 1
-    ```
+    URL | Number of requests
+    ----|-------------------
+    /api/accounts/3 | 8757
+    /user_password_resets | 1
+    /petitions | 1
+    /backend/subscription/update_billing | 1
+    /uas/request-password-reset?trk=uas-resetpass | 1
 
     I created a hash to store the path of each line containing a 404 status and
     incremented the value each time that path occured. See log_crawl.rb ln 13
@@ -24,20 +24,20 @@ requested.
     though the service time is the total time it takes for the response to go out,
     including any wait time from the database queries. See log_crawl.rb ln 18 and ln 37
 
-[x] Which database is most frequently loaded?
+- [x] Which database is most frequently loaded?
 
     delayed_jobs
 
     See log_crawl.rb ln 22 and ln 41
 
-[x] Is any URL redirection taking place?
+- [x] Is any URL redirection taking place?
 
     Yes
 
     There are multiple 300 level status codes, mostly originating from the demo
     controller and backend namespaced controllers
 
-[x] Are there any server errors? Ideas about possible causes?
+- [x] Are there any server errors? Ideas about possible causes?
 
     Yes
 

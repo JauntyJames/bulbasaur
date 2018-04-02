@@ -123,6 +123,7 @@ as perfoming at least one rental during that month.
 - [x] Are there any other insights that you can gather from the data that would be helpful to the owner of the business?
 
     - What are genres are bringing in the most income?
+
       category | total_payments
       ---------|---------------
       Sports | $4892.19
