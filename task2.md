@@ -48,7 +48,7 @@ ON image_princess.inventory_id = rental.inventory_id;
 as perfoming at least one rental during that month.
 
 June 2005 => 2311
-
+  
 ```
 WITH month_rental AS (
   SELECT * FROM rental
@@ -60,7 +60,32 @@ FROM month_rental JOIN customer
 ON month_rental.customer_id = customer.customer_id;
 ```
 
-- [ ] Which film category is the most popular among our customers?
+- [x] Which film category is the most popular among our customers?
+
+    Sports => 1179 rentals
+
+    ```
+    WITH categorized_film AS (
+      SELECT category.name, film.film_id FROM category
+      JOIN film_category 
+      ON categorized.category_id = film_category.category_id
+      JOIN film
+      ON film_category.film_id = film.film_id
+    ),
+    inventory_rental AS (
+      SELECT * FROM rental
+      JOIN inventory 
+      ON rental.inventory = inventory.inventory_id
+    )
+    SELECT 
+      COUNT(inventory_rental.rental_id) AS rentals,
+      categorized_film.name
+    FROM inventory_rental
+    JOIN categorized_film
+    ON categorized_film.film_id = invenotry_rental.film_id
+    GROUP BY categorized_film.name
+    ORDER BY rentals desc;
+    ```
 
 - [ ] which film is the most popular in category 'Sports'?
 
