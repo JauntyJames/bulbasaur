@@ -4,7 +4,7 @@
 
     Karl Seal
 
-    ```
+    ```SQL
     WITH customers AS (
       SELECT * FROM customer
       WHERE store_id = 2
@@ -28,7 +28,7 @@ but it was sold out. would he be able to rent it from store 2 if he tried?
 
   Yes
 
-    ```
+    ```SQL
     WITH image_princess AS (
       SELECT film.title, inventory.store_id, inventory.inventory_id
       FROM film JOIN inventory
@@ -51,7 +51,7 @@ as perfoming at least one rental during that month.
     ------|----------
     June 2005 | 2311
           
-    ```
+    ```SQL
     WITH month_rental AS (
       SELECT * FROM rental
       WHERE EXTRACT(MONTH FROM rental_date) = 6 AND EXTRACT(YEAR FROM rental_date) = 2005
@@ -65,7 +65,7 @@ as perfoming at least one rental during that month.
 
     Sports => 1179 rentals
 
-    ```
+    ```SQL
     WITH categorized_film AS (
       SELECT category.name, film.film_id 
       FROM category
@@ -95,7 +95,7 @@ as perfoming at least one rental during that month.
     ------|--------------
     'Gleaming Jawbreaker' | 29 rentals
 
-    ```
+    ```SQL
     WITH sports_film AS (
       SELECT film.film_id, film.title
       FROM title
@@ -131,7 +131,7 @@ as perfoming at least one rental during that month.
       Animation | $4245.31
       Drama | $4118.46
 
-    ```
+    ```SQL
     WITH categorized_film AS (
       SELECT category.name, film.film_id
       FROM category

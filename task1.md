@@ -12,7 +12,7 @@ requested.
     /uas/request-password-reset?trk=uas-resetpass | 1
 
     I created a hash to store the path of each line containing a 404 status and
-    incremented the value each time that path occured. See log_crawl.rb ln 13
+    incremented the value each time that path occured. See [here](log_crawl.rb#13)
 
 - [x] Average time to load each page
 
@@ -22,13 +22,13 @@ requested.
     request, which then makes one or more database queries to a seperate server,
     which appears as a separate entry starting with infoapp/web.x. It looks as
     though the service time is the total time it takes for the response to go out,
-    including any wait time from the database queries. See log_crawl.rb ln 18 and ln 37
+    including any wait time from the database queries. See [here](log_crawl.rb#18) and [here](log_crawl.rb#37) ln 18 and ln 37
 
 - [x] Which database is most frequently loaded?
 
     delayed_jobs
 
-    See log_crawl.rb ln 22 and ln 41
+    See [here ](log_crawl.rb#22)and [here](log_crawl.rb#41) 
 
 - [x] Is any URL redirection taking place?
 
