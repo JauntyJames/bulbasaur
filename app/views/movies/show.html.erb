@@ -1,0 +1,8 @@
+<h1><%= @movie[:title] %></h1>
+
+<h3>Description</h3>
+<p><%= @movie[:description] %></p>
+<h3>Directed By</h3>
+<% @movie.directors.each do |director| %>
+  <p><%= link_to(director.name, director.imdb_page) %></p>
+<% end %>
