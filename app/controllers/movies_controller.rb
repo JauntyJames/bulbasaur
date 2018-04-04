@@ -10,6 +10,5 @@ class MoviesController < ApplicationController
     id = params[:id]
     @movie = Movie.find(id)
     MoviesApi.movie_directors(@movie.movie_id)
-    @movie
   end
 end

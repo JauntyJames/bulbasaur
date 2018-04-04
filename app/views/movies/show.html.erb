@@ -1,3 +1,7 @@
 <h1><%= @movie[:title] %></h1>
 
-<p>Description: <%= @movie[:description] %></p>
+<h3>Description</h3>
+<p><%= @movie[:description] %></p>
+<% @movie.directors.each do |director| %>
+  <p><%= director.name %></p>
+<% end %>
