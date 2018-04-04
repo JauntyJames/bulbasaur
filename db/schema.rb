@@ -16,6 +16,11 @@ ActiveRecord::Schema.define(version: 20180403190532) do
   enable_extension "plpgsql"
 
   create_table "directors", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "director_id", null: false
+    t.string "imdb_page", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "movies", force: :cascade do |t|
