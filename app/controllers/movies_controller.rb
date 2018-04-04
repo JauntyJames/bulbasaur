@@ -9,6 +9,8 @@ class MoviesController < ApplicationController
   def show
     id = params[:id]
     @movie = Movie.find(id)
-    MoviesApi.movie_directors(@movie.movie_id)
+    unless !@movie.directors.empty?
+      MoviesApi.movie_directors(@movie.movie_id)
+    end
   end
 end
