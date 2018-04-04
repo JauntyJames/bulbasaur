@@ -1,16 +1,16 @@
 class MoviesApi
   class << self
-    def days_movies
+    def get_movies
       response = HTTParty.get("https://api.themoviedb.org/3/movie/now_playing?api_key=#{ENV["MOVIE_DB_API_KEY"]}&language=en-US&page=1&region=gr")
 
       if response.code == 200
         response['results'].each do |result|
-          movie = Movie.create(
-            title: result['title'],
-            description: result['overview'],
-            original_title: result['original_title'],
-            movie_id: result['id']
-          )
+          movie = Movie.find_or_create_by( movie_id: result['id'] )
+          movie.title = result['title']
+          movie.description = result['overview']
+          movie.original_title = result['original_title']
+          movie.updated_at = DateTime.current
+          movie.save
         end
       end
     end

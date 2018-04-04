@@ -15,9 +15,9 @@
 
 - Clone down the repo
 - `bundle install`
-- Obtain an API key from [The Movie Database](https://developers.themoviedb.org/3/getting-started). 
+- Obtain an API key from [The Movie Database](https://developers.themoviedb.org/3/getting-started)
 - `echo MOVIE_DB_API_KEY=your-api-key-here >> .env`
-- `rake db:schema:load`
+- `rake db:setup`
 - `rails server`
 - Navigate your browser to `localhost:3000`
 
@@ -27,4 +27,4 @@
 
 ### Testing
 
-- To run testing suite, run `rake`
+- To run testing suite, run `rake test`
