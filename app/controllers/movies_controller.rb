@@ -2,8 +2,8 @@ require 'movie_api'
 
 class MoviesController < ApplicationController
   def index
-    MoviesApi.get_movies
-    @movies = Movie.where(updated_at: Date.today.beginning_of_day..Date.today.end_of_day)
+    MoviesApi.get_movies('gr')
+    @movies = Movie.where(updated_at: Date.current.beginning_of_day.utc..Date.current.end_of_day.utc)
   end
 
   def show
