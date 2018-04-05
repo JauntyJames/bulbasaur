@@ -1,6 +1,8 @@
 <h1>Now Playing!</h1>
 
-<div>
+<h3>Movies currently showing in Greece, as per The Movie Database</h3>
+
+<div class="movie-container">
   <% @movies.each do |movie| %>
     <div class="movie-tile">
       <img src=<%= movie.image %>>
