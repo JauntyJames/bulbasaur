@@ -1,4 +1,7 @@
 <h1><%= @movie[:title] %></h1>
+<% if @movie.title != @movie.original_title %>
+  <h3><em><%= @movie.original_title %></em></h3>
+<% end %>
 
 <h3>Description</h3>
 <p><%= @movie[:description] %></p>

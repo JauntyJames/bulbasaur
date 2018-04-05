@@ -40,7 +40,7 @@ but it was sold out. would he be able to rent it from store 2 if he tried?
       image_princess.store_id,
       rental.rental_date,
       rental.return_date
-    FROM film JOIN inventory
+    FROM image_princess JOIN rental
     ON image_princess.inventory_id = rental.inventory_id;
     ```
 
@@ -98,11 +98,11 @@ as perfoming at least one rental during that month.
     ```SQL
     WITH sports_film AS (
       SELECT film.film_id, film.title
-      FROM title
+      FROM film
       JOIN film_category
       ON film_category.film_id = film.film_id
       JOIN category
-      ON film_category = category.category_id
+      ON film_category.category_id = category.category_id
       WHERE category.name = 'Sports'
     ),
     inventory_rental AS (
@@ -138,7 +138,7 @@ as perfoming at least one rental during that month.
       JOIN film_category 
       ON category.category_id = film_category.category_id
       JOIN film
-      ON rental.inventory_id = inventory.inventory_id
+      ON film.film_id = film_category.film_id
     ), 
     rental_payment AS (
       SELECT payment.amount, inventory.film_id

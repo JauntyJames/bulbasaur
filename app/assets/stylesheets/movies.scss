@@ -1,6 +1,17 @@
 body {
-  background-color: #ddc744;
+  background-color: #8f2934;
   text-align: center;
+  font-family: Roboto, cursive;
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  h1 {
+    font-family: 'Bungee Shade', sans-serif;
+    font-size: 40pt;
+  }
 }
 
  .movie-container {
@@ -11,14 +22,9 @@ body {
 
 .movie-tile {
   display: inline-block;
-  margin: 4rem;
+  margin: 1rem;
   width: 200px;
-  padding: 1rem;
-  a {
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
+  padding: 2rem;
+  background-color: #ddc744;
 }
 
