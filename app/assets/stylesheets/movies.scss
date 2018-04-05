@@ -28,3 +28,15 @@ body {
   background-color: #ddc744;
 }
 
+.movie-details {
+  text-align: left;
+  margin: 2rem;
+  img {
+    display: inline-block;
+  }
+  .text {
+    display: inline-block;
+    margin: 2rem;
+    width: 75%;
+  }
+}

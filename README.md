@@ -27,4 +27,9 @@
 
 ### Testing
 
-- To run testing suite, run `rake test`
+- To run testing suite, run `rake spec`
+
+### Other
+
+- Methods for interacting with the API are found in a [custom class](app/models/movie_api.rb)
+- Movie records are persisted indefinitely, but only those updated today are displayed.
