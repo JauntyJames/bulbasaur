@@ -22,7 +22,7 @@ class MoviesApi
           if crewmember['job'] == 'Director'
             director = Director.new(name: crewmember['name'], director_id: crewmember['id'])
             director_data = HTTParty.get("https://api.themoviedb.org/3/person/#{director.director_id}/?api_key=#{ENV["MOVIE_DB_API_KEY"]}")
-            if director_data["imdb_data"]
+            if director_data["imdb_id"]
               director.imdb_page = "http://www.imdb.com/name/#{director_data["imdb_id"]}/"
             end
             director.save
