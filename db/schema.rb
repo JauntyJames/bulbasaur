@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180405000956) do
+ActiveRecord::Schema.define(version: 20180418001156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180405000956) do
   create_table "directors", force: :cascade do |t|
     t.string "name", null: false
     t.integer "director_id", null: false
-    t.string "imdb_page", null: false
+    t.string "imdb_page"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
